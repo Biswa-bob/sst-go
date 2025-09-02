@@ -19,8 +19,7 @@ func init() {
 	log.Printf("Cold start - initializing application")
 
 	// Initialize the application
-	application := app.New()
-	router := application.SetupRoutes()
+	router := app.SetupRoutes()
 
 	// Create the adapter for AWS Lambda
 	chiLambda = chiadapter.New(router)
@@ -37,8 +36,7 @@ func main() {
 	} else {
 		// Local development mode
 		log.Printf("Starting server locally on :8080")
-		application := app.New()
-		router := application.SetupRoutes()
+		router := app.SetupRoutes()
 		log.Fatal(http.ListenAndServe(":8080", router))
 	}
 }

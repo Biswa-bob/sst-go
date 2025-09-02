@@ -6,11 +6,6 @@ export default $config({
 			name: 'hello-world-api',
 			removal: input?.stage === 'production' ? 'retain' : 'remove',
 			home: 'aws',
-			providers: {
-				aws: {
-					profile: 'personal',
-				},
-			},
 		};
 	},
 	async run() {
