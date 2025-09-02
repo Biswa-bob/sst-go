@@ -21,7 +21,7 @@ func init() {
 	// Initialize the application
 	router := app.SetupRoutes()
 
-	// Create the adapter for AWS Lambda
+	// Create the adapter for AWS Lambda (API Gateway v1)
 	chiLambda = chiadapter.New(router)
 }
 

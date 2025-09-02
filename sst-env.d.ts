@@ -5,9 +5,8 @@
 
 declare module "sst" {
   export interface Resource {
-    "HelloWorldAPI": {
-      "name": string
-      "type": "sst.aws.Function"
+    "RestApi": {
+      "type": "sst.aws.ApiGatewayV1"
       "url": string
     }
   }

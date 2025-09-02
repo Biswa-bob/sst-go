@@ -9,16 +9,21 @@ export default $config({
 		};
 	},
 	async run() {
-		// Create a simple API using Go
-		const api = new sst.aws.Function('HelloWorldAPI', {
+		// API Gateway REST API fronting the Go Lambda
+		const api = new sst.aws.ApiGatewayV1('RestApi');
+
+		api.route('ANY /', {
 			handler: './main.go',
 			runtime: 'go',
 			architecture: 'arm64',
-			url: true,
-			environment: {
-				STAGE: $app.stage,
-			},
 		});
+		api.route('ANY /{proxy+}', {
+			handler: './main.go',
+			runtime: 'go',
+			architecture: 'arm64',
+		});
+
+		api.deploy();
 
 		return {
 			api: api.url,
