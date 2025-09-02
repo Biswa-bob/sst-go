@@ -1,0 +1,23 @@
+{
+    "name": "hello-world-api",
+    "version": "1.0.0",
+    "description": "Hello World REST API with SST v3 and Go",
+    "scripts": {
+        "dev": "sst dev",
+        "deploy": "sst deploy",
+        "remove": "sst remove",
+        "build": "GOOS=linux GOARCH=arm64 go build -ldflags='-s -w' -o bootstrap main.go"
+    },
+    "devDependencies": {
+        "sst": "^3.0.0"
+    },
+    "keywords": [
+        "golang",
+        "rest-api",
+        "sst",
+        "aws-lambda",
+        "serverless"
+    ],
+    "author": "",
+    "license": "MIT"
+}
